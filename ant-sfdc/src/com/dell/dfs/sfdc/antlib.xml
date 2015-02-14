@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<antlib>
+   <taskdef name="bulkInsert" classname="com.dell.dfs.sfdc.BulkInsert" />
+   <taskdef name="bulkUpdate" classname="com.dell.dfs.sfdc.BulkUpdate" />
+   <taskdef name="bulkUpsert" classname="com.dell.dfs.sfdc.BulkUpsert" />
+   <taskdef name="bulkDelete" classname="com.dell.dfs.sfdc.BulkDelete" />
+   <taskdef name="bulkQuery" classname="com.dell.dfs.sfdc.BulkQuery" />
+   <taskdef name="bulkAttachment" classname="com.dell.dfs.sfdc.BulkAttachment" />
+   <taskdef name="bulkPricebook" classname="com.dell.dfs.sfdc.BulkPricebook" />
+   <taskdef name="createPackage" classname="com.dell.dfs.sfdc.CreatePackage" />
+   <taskdef name="createUpsert" classname="com.dell.dfs.sfdc.CreateUpsert" />
+   <taskdef name="bulkUserRoles" classname="com.dell.dfs.sfdc.BulkUserRoles"/>
+   <taskdef name="bulkUpdateUserRole" classname="com.dell.dfs.sfdc.BulkUpdateUserRole"/>
+   <taskdef name="updateFile" classname="com.dell.dfs.sfdc.UpdateFile"/>
+   <taskdef name="bulkInsertAutomatedUser" classname="com.dell.dfs.sfdc.BulkInsertAutomatedUser"/>
+   <taskdef name="applyVLookup" classname="com.dell.dfs.sfdc.ApplyVLookup"/>
+</antlib>

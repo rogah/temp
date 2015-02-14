@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<project name="dfs-sfdc" basedir="." default="default">
+
+	<buildnumber file="build.number"/>
+
+	<property file="build.properties"/>
+	
+	<property environment="env"/>
+
+	<property name="manifest.file" value="manifest.mf"/>
+	<property name="build.version" value="${version.number}.${build.number}"/>
+	<property name="src.dir" value="src"/>
+	<property name="lib.dir" value="lib"/>
+	<property name="bin.dir" value="bin"/>
+	<property name="dest.dir" value="build"/>
+	<property name="dest.file" value="${dest.dir}\${ant.project.name}-${build.version}.jar"/>
+
+	<tstamp>
+		<format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" />
+	</tstamp>
+
+	<target name="cleanup" description="Delete all generated files">
+		<delete dir="${bin.dir}" failonerror="false"/>
+		<delete failonerror="false">
+			<fileset dir="${bin.dir}" />
+			<fileset file="${manifest.file}"/>
+	   </delete> 
+	</target>
+
+	<target name="compile" description="Compiles the Task">
+		<path id="classpath">
+			<pathelement path="${java.class.path}"/>
+			<fileset dir="${lib.dir}">
+				<include name="*.jar"/>
+        <exclude name="dfs-sfdc*.jar"/>
+			</fileset>
+		</path>
+		<mkdir dir="${bin.dir}"/>
+		<javac srcdir="${src.dir}" destdir="${bin.dir}" classpathref="classpath" includeantruntime="false"/>
+	</target>
+
+	<target name="jar" description="JARs the Task">
+		<copy todir="${bin.dir}">
+		  <fileset dir="${src.dir}" includes="**/antlib.xml"/>
+		</copy>
+
+		<manifest file="${manifest.file}">
+			<attribute name="Build-Version" value="${build.version}"/>
+			<attribute name="Built-By" value="${user.name}"/>
+			<attribute name="Built-Date" value="${TODAY}"/>
+		</manifest>
+
+		<delete failonerror="false">
+			<fileset dir="${dest.dir}" includes="${ant.project.name}*.jar"/>
+		</delete>
+
+		<jar destfile="${dest.file}" basedir="${bin.dir}" manifest="${manifest.file}">
+			<zipgroupfileset dir="${lib.dir}">
+				<include name="*.jar"/>
+				<exclude name="junit*.jar"/>
+				<exclude name="hamcrest*.jar"/>
+			</zipgroupfileset>
+		</jar>
+	</target>
+
+	<target name="default" depends="compile,jar,cleanup">
+		<echo message="Build of ${ant.project.name}.jar is completed." />
+	</target>
+
+</project>

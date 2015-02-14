@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="var" path="ANT_HOME"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Salesforce API"/>
+  <classpathentry combineaccessrules="false" kind="src" path="/dfs-sfdc"/>
+	<classpathentry kind="lib" path="/dfs-sfdc/lib/commons-lang3-3.3.2.jar"/>
+	<classpathentry kind="lib" path="/dfs-sfdc/lib/javacsv.jar"/>
+	<classpathentry kind="lib" path="/dfs-sfdc/lib/force-wsc-32.1.0.jar"/>
+	<classpathentry kind="lib" path="/dfs-sfdc/lib/partner-32.1.0.jar"/>
+	<classpathentry kind="lib" path="/dfs-sfdc/lib/metadata-32.1.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
